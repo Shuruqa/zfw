@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<!--
+ // WEBSITE: https://themefisher.com
+ // TWITTER: https://twitter.com/themefisher
+ // FACEBOOK: https://www.facebook.com/themefisher
+ // GITHUB: https://github.com/themefisher/
+-->
+
+<html lang="en-us">
+
+<head>
+	<meta charset="utf-8">
+	<title>Zero Food Waste</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+	<meta name="description" content="This is meta description">
+	<meta name="author" content="Themefisher">
+	<link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+	<link rel="icon" href="images/logo.png" type="image/x-icon">
+
+	<!-- # Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+	<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+
+
+	<!-- # CSS Plugins -->
+	<link rel="stylesheet" href="plugins/slick/slick.css">
+	<link rel="stylesheet" href="plugins/font-awesome/fontawesome.min.css">
+	<link rel="stylesheet" href="plugins/font-awesome/brands.css">
+	<link rel="stylesheet" href="plugins/font-awesome/solid.css">
+	
+
+	<!-- # Main Style Sheet -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- navigation -->
+<header class="navigation bg-tertiary">
+	<nav class="navbar navbar-expand-xl navbar-light text-center py-3">
+		<div class="container">
+			<a class="navbar-brand" href="index.html">
+				<img loading="prelaod" decoding="async" class="img-fluid" width="160" src="images/logo.png" alt="Wallet">
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+					<li class="nav-item"> <a class="nav-link" href="index.html">Home</a>
+					</li>
+					<li class="nav-item "> <a class="nav-link" href="about.html">About</a>
+					</li>
+					<li class="nav-item "> <a class="nav-link" href="contact.html">Contact</a>
+					</li>
+				</ul>
+				<!-- account btn --> <a href="login.html" class="btn btn-outline-primary">Log In</a>
+				<!-- account btn --> <a href="signup.html" class="btn btn-primary ms-2 ms-lg-3">Sign Up</a>
+			</div>
+		</div>
+	</nav>
+</header>
+<!-- /navigation -->
+
+<div class="modal applyLoanModal fade" id="applyLoan" tabindex="-1" aria-labelledby="applyLoanLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-bottom-0">
+        <h4 class="modal-title" id="exampleModalLabel">How much do you need?</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="#!" method="post">
+          <div class="row">
+            <div class="col-lg-6 mb-4 pb-2">
+              <div class="form-group">
+                <label for="loan_amount" class="form-label">Amount</label>
+                <input type="number" class="form-control shadow-none" id="loan_amount" placeholder="ex: 25000">
+              </div>
+            </div>
+            <div class="col-lg-6 mb-4 pb-2">
+              <div class="form-group">
+                <label for="loan_how_long_for" class="form-label">How long for?</label>
+                <input type="number" class="form-control shadow-none" id="loan_how_long_for" placeholder="ex: 12">
+              </div>
+            </div>
+            <div class="col-lg-12 mb-4 pb-2">
+              <div class="form-group">
+                <label for="loan_repayment" class="form-label">Repayment</label>
+                <input type="number" class="form-control shadow-none" id="loan_repayment" disabled>
+              </div>
+            </div>
+            <div class="col-lg-6 mb-4 pb-2">
+              <div class="form-group">
+                <label for="loan_full_name" class="form-label">Full Name</label>
+                <input type="text" class="form-control shadow-none" id="loan_full_name">
+              </div>
+            </div>
+            <div class="col-lg-6 mb-4 pb-2">
+              <div class="form-group">
+                <label for="loan_email_address" class="form-label">Email address</label>
+                <input type="email" class="form-control shadow-none" id="loan_email_address">
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <button type="submit" class="btn btn-primary w-100">Get Your Loan Now</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="mb-5">
+		<h3 class="mb-4" style="line-height:1.5">Search Available Food</h2>
+			<div class="row">
+				<div class="col-lg-4 mb-4 pb-2">
+					<div class="input-group">
+						<input type="search" class="form-control shadow-none" placeholder="Search for food.." />
+						<button id="search-button" type="button" class="btn btn-primary"><i class="fas fa-search"></i></button>
+					</div>				
+				</div>
+				<div class="col-lg-4 mb-4 pb-2">
+				  <div class="input-group">
+					<!--label for="new_password" class="form-label">New Passowrd</label-->
+					<input list="food-type" class="form-control shadow-none" placeholder="Categories">
+						<datalist id="food-type">
+						  <option class="dropdown-item" value="Pantry">
+						  <option class="dropdown-item" value="Fridge">
+						  <option class="dropdown-item" value="Freezer">
+						</datalist>
+				  </div>
+				</div>
+				<div class="col-lg-4 mb-4 pb-2">
+				  <div class="input-group">
+					<!--label for="new_password" class="form-label">New Passowrd</label-->
+					<!--input type="text" class="form-control shadow-none" id="search-food"-->
+					<select type="text" class="form-control shadow-none" id="sort-by">
+						<option class="dropdown-item" value="">Sort By</option>
+						<option class="dropdown-item" value="price-asc">Price: Low to High</option>
+						<option class="dropdown-item" value="price-desc">Price: High to Low</option>
+						<option class="dropdown-item" value="name-asc">Name: A to Z</option>
+						<option class="dropdown-item" value="name-desc">Name: Z to A</option>
+					</select>
+					<button id="search-button" type="button" class="btn btn-primary"><i class="fas fa-sort-alpha-down"></i></button>
+				  </div>
+				</div>
+			</div>
+        </div>
+        <div class="content">
+		 <!-- Use unique IDs for your tables -->
+          <table id="table1">
+            <thead>
+              <tr>
+                <th>Tables</th>
+                <th style="text-align:center">Are</th>
+                <th style="text-align:right">Cool</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>col 3 is</td>
+                <td style="text-align:center">right-aligned</td>
+                <td style="text-align:right">$1600</td>
+              </tr>
+              <tr>
+                <td>col 2 is</td>
+                <td style="text-align:center">centered</td>
+                <td style="text-align:right">$12</td>
+              </tr>
+              <tr>
+                <td>zebra stripes</td>
+                <td style="text-align:center">are neat</td>
+                <td style="text-align:right">$1</td>
+              </tr>
+            </tbody>
+          </table>
+          <!--table>
+            <thead>
+              <tr>
+                <th>Markdown</th>
+                <th>Less</th>
+                <th>Pretty</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><em>Still</em>
+                </td>
+                <td><code>renders</code>
+                </td>
+                <td><strong>nicely</strong>
+                </td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+              </tr>
+            </tbody>
+          </table-->
+        </div>  <!-- Use remove the content div -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="section-sm bg-tertiary">
+	<div class="container">
+		<div class="row justify-content-between">
+			<div class="col-lg-2 col-md-4 col-6 mb-4">
+				<div class="footer-widget">
+					<h5 class="mb-4 text-primary font-secondary">Service</h5>
+					<ul class="list-unstyled">
+						<li class="mb-2"><a href="food-business-services.html">Food Business</a>
+						</li>
+						<li class="mb-2"><a href="food-waste-services.html">Food Waste Facilitator</a>
+						</li>
+						<li class="mb-2"><a href="food-request-services.html">Food Requestor</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-4 col-6 mb-4">
+				<div class="footer-widget">
+					<h5 class="mb-4 text-primary font-secondary">About</h5>
+					<ul class="list-unstyled">
+						<li class="mb-2"><a href="about.html">Our Story</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-4 col-6 mb-4">
+				<div class="footer-widget">
+					<h5 class="mb-4 text-primary font-secondary">Help</h5>
+					<ul class="list-unstyled">
+						<li class="mb-2"><a href="contact.html">Contact Us</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="row align-items-center mt-5 text-center text-md-start">
+			<div class="col-lg-4">
+        <a href="index.html">
+          <img loading="prelaod" decoding="async" class="img-fluid" width="160" src="images/logo.png" alt="Food Waste Management Platform">
+        </a>
+			</div>
+		</div>
+	</div>
+</footer>
+
+
+<!-- # JS Plugins -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<script src="plugins/slick/slick.min.js"></script>
+<script src="plugins/scrollmenu/scrollmenu.min.js"></script>
+
+<!-- Main Script -->
+<script src="js/script.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Search functionality
+    const searchButton = document.getElementById('search-button');
+    const searchInput = document.querySelector('input[type="search"]');
+    searchButton.addEventListener('click', function() {
+        const searchText = searchInput.value.toLowerCase();
+        filterTable(searchText);
+    });
+
+    function filterTable(searchText) {
+        const tables = document.querySelectorAll('table');
+        tables.forEach(table => {
+            Array.from(table.querySelectorAll('tr')).forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(searchText) ? 'table-row' : 'none';
+            });
+        });
+    }
+
+    // Sort functionality
+    const sortButton = document.getElementById('sort-button');
+    const sortSelect = document.getElementById('sort-by');
+    sortButton.addEventListener('click', function() {
+        const sortBy = sortSelect.value;
+        sortTable(sortBy);
+    });
+
+    function sortTable(sortBy) {
+        // Add your sorting logic based on the selected value (e.g., price, name)
+        // Here you'd manipulate the order of the table rows accordingly
+    }
+
+    // Select functionality
+    const selectButton = document.getElementById('select-button');
+    const foodType = document.getElementById('food-type');
+    selectButton.addEventListener('click', function() {
+        const selectedValue = foodType.value;
+        filterTable(selectedValue);
+    });
+
+    // You can adjust this code to fit your specific table structure and sorting logic.
+});
+</script>
+
+</body>
+</html>
